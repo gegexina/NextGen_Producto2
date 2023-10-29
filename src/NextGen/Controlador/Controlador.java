@@ -1,7 +1,9 @@
 package NextGen.Controlador;
 
 import NextGen.Modelo.*;
-import java.sql.*;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Scanner;
 
 /**
@@ -9,7 +11,6 @@ import java.util.Scanner;
  */
 public class Controlador {
     private Datos datos;
-    private Iterable<? extends Articulo> lista;
 
     /**
      * Constructor que inicializa una instancia de Datos.
@@ -35,12 +36,11 @@ public class Controlador {
         System.out.println("Agregar un nuevo artículo:");
 
         System.out.print("Código: ");
-        String codigo = String.valueOf(scanner.nextInt());
-        scanner.nextLine();
+        String codigo = scanner.nextLine();
 
         ListaArticulos listaArticulos = datos.getListaArticulos();
         for (Articulo articuloExistente : listaArticulos.getArrayList()) {
-            if (articuloExistente.getCodigo() == codigo) {
+            if (articuloExistente.getCodigo().equals(codigo)) {
                 System.out.println("¡Error! Ya existe un artículo con el mismo código.");
                 return;
             }
@@ -90,6 +90,18 @@ public class Controlador {
         for (Cliente cliente : lista) {
             System.out.println(cliente);
         }
+    }
+
+    public void listarClienteEstandard () {
+        //FALTA AÑADIRLA
+    }
+
+    public void listarClientePremium () {
+        //FALTA AÑADIRLA
+    }
+
+    public void modificarCliente () {
+        //FALTA AÑADIRLA
     }
     /**
      * Agrega un nuevo cliente a la lista de clientes solicitando al usuario los datos necesarios.
@@ -163,6 +175,14 @@ public class Controlador {
             System.out.println(pedido);
         }
     }
+
+    public void listarPedidosPendientes() {
+        //FALTA AÑADIR
+    }
+
+    public void listarPedidosEnviados() {
+        //FALTA AÑADIR
+    }
     /**
      * Agrega un nuevo pedido a la lista de pedidos solicitando al usuario los datos necesarios.
      */
@@ -196,8 +216,7 @@ public class Controlador {
         }
 
         System.out.print("Código del Artículo: ");
-        int codigoArticulo = scanner.nextInt();
-        scanner.nextLine();
+        String codigoArticulo = scanner.nextLine();
         Articulo articulo = datos.getListaArticulos().buscarPorCodigo(codigoArticulo);
 
         if (articulo == null) {

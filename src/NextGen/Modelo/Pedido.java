@@ -1,8 +1,8 @@
 package NextGen.Modelo;
 
-import java.text.SimpleDateFormat;
-import java.time.LocalDateTime;
 import java.util.Date;
+import java.time.format.DateTimeFormatter;
+import java.text.SimpleDateFormat;
 /**
  * Clase que representa un pedido realizado por un cliente.
  */
@@ -124,8 +124,8 @@ public class Pedido {
      * Comprueba si el pedido ha sido enviado.
      * @return true si el pedido ha sido enviado, false de lo contrario.
      */
-    public <LocalDateTime> boolean pedidoEnviado() {
-        LocalDateTime horaPreparacion = fechaHora.getMinutes();
+    public boolean pedidoEnviado() {
+        LocalDateTime horaPreparacion = fechaHora.plusMinutes(articulo.getPreparacionEnMin());
         LocalDateTime horaActual = LocalDateTime.now();
 
         return horaActual.isAfter(horaPreparacion);

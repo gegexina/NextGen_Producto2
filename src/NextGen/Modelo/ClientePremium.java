@@ -54,7 +54,7 @@ public class ClientePremium extends Cliente {
      * Calcula el descuento en el envío para el cliente premium. En este caso, siempre devuelve 0.2.
      * @return El descuento en el envío como un valor entre 0 y 1, que es 0.2.
      */
-    public float descuentoEnv() { return 0.2F; }
+    public float descuentoEnv() { return 5.99f; }
     /**
      * Representación en forma de tabla del cliente premium con los detalles y cuota anual.
      * @return Una cadena que muestra los detalles del cliente premium en forma de tabla, junto con su cuota anual y descuento en envío.

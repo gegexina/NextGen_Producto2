@@ -14,9 +14,9 @@ public class ListaClientes extends Lista<Cliente> {
      * @param nif El NIF del cliente que se desea buscar.
      * @return El cliente con el NIF especificado, o null si no se encuentra.
      */
-    public Cliente buscarPorNif(int nif) {
+    public Cliente buscarPorNif(String nif) {
         for (Cliente cliente : lista) {
-            if (cliente.getNif() == nif) {
+            if (cliente.getNif().equals(nif)) {
                 return cliente;
             }
         }

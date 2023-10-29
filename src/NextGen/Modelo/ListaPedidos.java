@@ -17,7 +17,7 @@ public class ListaPedidos extends Lista<Pedido> {
     public Pedido buscarPorNumeropedido(int numeroPedido) {
         for (Pedido pedido : lista) {
             if (cliente.getNumeroPedido() == numeroPedido) {
-                return numeroPedido;
+                return pedido;
             }
         }
         return null;

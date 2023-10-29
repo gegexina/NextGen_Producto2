@@ -81,7 +81,7 @@ public class GestionOS {
                     salir = true;
                     break;
                 default:
-                    System.out.println("Opción inválida. Por favor, elija una opción válida.");
+                    System.out.println("\u001B[31m" + "Opción inválida. Por favor, elija una opción válida." + "\u001B[0m");
             }
         } while (!salir);
     }
@@ -125,7 +125,7 @@ public class GestionOS {
                     salir = true;
                     break;
                 default:
-                    System.out.println("Opción inválida. Por favor, elija una opción válida.");
+                    System.out.println("\u001B[31m" + "Opción inválida. Por favor, elija una opción válida." + "\u001B[0m");
             }
         } while (!salir);
     }
@@ -165,7 +165,7 @@ public class GestionOS {
                     salir = true;
                     break;
                 default:
-                    System.out.println("Opción inválida. Por favor, elija una opción válida.");
+                    System.out.println("\u001B[31m" + "Opción inválida. Por favor, elija una opción válida." + "\u001B[0m");
             }
         } while (!salir);
     }

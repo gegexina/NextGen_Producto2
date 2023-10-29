@@ -87,7 +87,7 @@ public abstract class Cliente {
     @Override
     public String toString() {
         String separator = " | ";
-        String header = "NIF          | Nombre                    | Email                               | Dirección de Envío                  | Tipo de Cliente | Cuota Anual  | Descuento Envío";
+        String header = "NIF         | Nombre                     | Email                              | Dirección de Envío                    | Tipo de Cliente | Cuota Anual  | Descuento Envío";
         DecimalFormat df = new DecimalFormat("#.##");
         String data = String.format("%-12s" + separator + "%-26s" + separator + "%-34s" + separator + "%-38s" + separator + "%-15s" + separator + "%-13s" + separator + "%-15s",
                 nif, nombre, email, direccion, tipoCliente(), df.format(calcAnual()) + "€", df.format((descuentoEnv() * 100)) + "%");

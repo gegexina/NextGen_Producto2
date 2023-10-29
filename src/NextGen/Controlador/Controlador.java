@@ -176,15 +176,13 @@ public class Controlador {
      * @param cliente El cliente que se desea eliminar de la lista
      */
     public void eliminarCliente(Cliente cliente) {
-
+        //falta añadir
     }
-
-
     /**
      * Lista y muestra todos los pedidos presentes en la lista.
      */
     public void listarPedidos() {
-
+        //FALTA AÑADIR
     }
 
     public void listarPedidosPendientes() {
@@ -217,7 +215,7 @@ public class Controlador {
             fechaHora = new Date();
         }
 
-        System.out.println("\u001B[34m" + "Lista de Clientes Disponibles:" + "\u001B[0m");
+        System.out.println("\u001B[34m" + "Escoge un cliente de la lista de clientes disponibles:" + "\u001B[0m");
         ListaClientes listaClientes = datos.getListaClientes();
         for (Cliente cliente : listaClientes.getArrayList()) {
             System.out.println("NIF:          " + cliente.getNif());
@@ -228,12 +226,12 @@ public class Controlador {
             System.out.println("------------------------");
         }
 
-        System.out.print("\u001B[34m" + "Ingrese el NIF del Cliente (o escriba " + "\u001B[33m" + "'nuevo'" + "\u001B[0m" + " para crear uno nuevo): " + "\u001B[0m");
+        System.out.print("\u001B[34m" + "Ingrese el NIF del Cliente (o escriba " + "\u001B[33m" + "'nuevo'" + "\u001B[0m" + "\u001B[34m" + " para crear uno nuevo): " + "\u001B[0m");
         String nifCliente = scanner.nextLine();
 
         if (nifCliente.equalsIgnoreCase("nuevo")) {
             agregarCliente();
-            System.out.print("Ingrese el NIF del Cliente: ");
+            System.out.print("Ingrese el NIF del Cliente y continua con el pedido: ");
             nifCliente = scanner.nextLine();
         }
 
@@ -244,7 +242,7 @@ public class Controlador {
             return;
         }
 
-        System.out.println("\u001B[34m" + "Lista de Artículos Disponibles:" + "\u001B[0m");
+        System.out.println("\u001B[34m" + "Escoge un articulo de la lista de artículos disponibles:" + "\u001B[0m");
         ListaArticulos listaArticulos = datos.getListaArticulos();
         for (Articulo articulo : listaArticulos.getArrayList()) {
             System.out.println("Código:                 " + articulo.getCodigo());
@@ -292,7 +290,7 @@ public class Controlador {
      * @param pedido El pedido que se desea eliminar de la lista
      */
     public void eliminarPedido(Pedido pedido) {
-
+         //eliminar pedido
     }
 
 }

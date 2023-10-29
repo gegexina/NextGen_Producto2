@@ -3,7 +3,7 @@ package NextGen.Modelo;
  * Clase que representa un artículo con sus atributos.
  */
 public class Articulo {
-    private int codigo;
+    private String codigo;
     private String descripcion;
     private double precio;
     private double gastosEnvio;
@@ -16,7 +16,7 @@ public class Articulo {
      * @param gastosEnvio Los gastos de envío asociados al artículo.
      * @param preparacionEnMin El tiempo de preparación en minutos del artículo.
      */
-    public Articulo(int codigo, String descripcion, double precio, double gastosEnvio, int preparacionEnMin) {
+    public Articulo(String codigo, String descripcion, double precio, double gastosEnvio, int preparacionEnMin) {
         this.codigo = codigo;
         this.descripcion = descripcion;
         this.precio = precio;
@@ -27,14 +27,14 @@ public class Articulo {
      * Obtiene el código del artículo.
      * @return El código del artículo.
      */
-    public int getCodigo() {
+    public String getCodigo() {
         return codigo;
     }
     /**
      * Establece el código del artículo.
      * @param codigo El nuevo código del artículo.
      */
-    public void setCodigo(int codigo) {
+    public void setCodigo(String codigo) {
         this.codigo = codigo;
     }
     /**
@@ -92,9 +92,9 @@ public class Articulo {
     @Override
     public String toString() {
         String separator = " | ";
-        String header = "Código       | Descripción                   | Precio  | Gastos de Envío  | Preparación (min)";
-        String data = String.format("%-13s" + separator + "%-30s" + separator + "%-8s" + separator + "%-18s" + separator + "%-16s",
+        String header = "Código       | Descripción                   | Precio   | Gastos de Envío    | Preparación (min)";
+        String data = String.format("%-13s" + separator + "%-29s" + separator + "%-8s" + separator + "%-18s" + separator + "%-16s",
                 codigo, descripcion, precio, gastosEnvio, preparacionEnMin);
-        return header + "\n" + data;
+        return header + "\n" + data + "\n";
     }
 }

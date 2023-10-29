@@ -1,6 +1,8 @@
 package NextGen.Vista;
 
 import NextGen.Controlador.Controlador;
+import NextGen.Modelo.Articulo;
+
 import java.util.Scanner;
 
 public class GestionOS {
@@ -73,7 +75,7 @@ public class GestionOS {
                     controlador.agregarArticulo();
                     break;
                 case '3':
-                    controlador.eliminarArticulo(); //mirar error
+                    //controlador.eliminarArticulo(); //mirar error
                     break;
                 case '0':
                     salir = true;
@@ -117,7 +119,7 @@ public class GestionOS {
                     controlador.modificarCliente(); //FALTA CREARLA
                     break;
                 case '6':
-                    controlador.eliminarCliente(); //mirar error
+                    //controlador.eliminarCliente(); //mirar error
                     break;
                 case '0':
                     salir = true;
@@ -157,7 +159,7 @@ public class GestionOS {
                     controlador.listarPedidosEnviados(); //FALTA CREARLA
                     break;
                 case '5':
-                    controlador.eliminarPedido(); //MIRAR ERROR
+                    //controlador.eliminarPedido(); //MIRAR ERROR
                     break;
                 case '0':
                     salir = true;

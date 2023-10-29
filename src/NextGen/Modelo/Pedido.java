@@ -1,13 +1,13 @@
 package NextGen.Modelo;
 
+import java.time.LocalDateTime;
 import java.util.Date;
-import java.time.format.DateTimeFormatter;
 import java.text.SimpleDateFormat;
 /**
  * Clase que representa un pedido realizado por un cliente.
  */
 public class Pedido {
-    private int numeroPedido;
+    private static int numeroPedido;
     private Date fechaHora;
     private Cliente cliente;
     private Articulo articulo;
@@ -33,7 +33,7 @@ public class Pedido {
      * Obtiene el número de pedido.
      * @return El número de pedido.
      */
-    public int getNumeroPedido() {
+    public static int getNumeroPedido() {
         return numeroPedido;
     }
     /**
@@ -124,12 +124,12 @@ public class Pedido {
      * Comprueba si el pedido ha sido enviado.
      * @return true si el pedido ha sido enviado, false de lo contrario.
      */
-    public boolean pedidoEnviado() {
-        LocalDateTime horaPreparacion = fechaHora.plusMinutes(articulo.getPreparacionEnMin());
-        LocalDateTime horaActual = LocalDateTime.now();
+    //public boolean pedidoEnviado() {
+        //LocalDateTime horaPreparacion = fechaHora.plusMinutes(articulo.getPreparacionEnMin());
+        //LocalDateTime horaActual = LocalDateTime.now();
 
-        return horaActual.isAfter(horaPreparacion);
-    }
+        //return horaActual.isAfter(horaPreparacion);
+    //}
     /**
      * Calcula el costo de envío del pedido.
      * @return El costo de envío del pedido.

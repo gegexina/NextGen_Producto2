@@ -153,8 +153,18 @@ public class Controlador {
         } else if (tipoCliente.equalsIgnoreCase("Premium")) {
             nuevoCliente = new ClientePremium(nif, nombre, email, direccion);
         } else {
-            System.out.println("\u001B[33m" + "Tipo de cliente no válido. Se creará como cliente estándard por defecto." + "\u001B[0m");
-            nuevoCliente = new ClienteEstandard(nif, nombre, email, direccion);
+            System.out.println("\u001B[33m" + "Tipo de cliente no válido. Por favor, ingrese 'Estandard' o 'Premium'." + "\u001B[0m");
+
+            do {
+                System.out.print("Tipo de cliente (Estandard/Premium): ");
+                tipoCliente = scanner.nextLine();
+            } while (!tipoCliente.equalsIgnoreCase("Estandard") && !tipoCliente.equalsIgnoreCase("Premium"));
+
+            if (tipoCliente.equalsIgnoreCase("Estandard")) {
+                nuevoCliente = new ClienteEstandard(nif, nombre, email, direccion);
+            } else {
+                nuevoCliente = new ClientePremium(nif, nombre, email, direccion);
+            }
         }
 
         listaClientes.add(nuevoCliente);

@@ -1,7 +1,7 @@
 package NextGen.Vista;
 
 import NextGen.Controlador.Controlador;
-import NextGen.Modelo.Articulo;
+import NextGen.Modelo.*;
 
 import java.util.Scanner;
 
@@ -97,8 +97,7 @@ public class GestionOS {
             System.out.println("║ 2. Listar Clientes Estandard ║");
             System.out.println("║ 3. Listar Clientes Premium   ║");
             System.out.println("║ 4. Añadir Cliente            ║");
-            System.out.println("║ 5. Modificar Cliente         ║");
-            System.out.println("║ 6. Eliminar Cliente          ║");
+            System.out.println("║ 5. Eliminar Cliente          ║");
             System.out.println("║ 0. Salir                     ║");
             System.out.println("╚══════════════════════════════╝");
             opcion = pedirOpcion();
@@ -116,10 +115,7 @@ public class GestionOS {
                     controlador.agregarCliente();
                     break;
                 case '5':
-                    controlador.modificarCliente(); //FALTA CREARLA
-                    break;
-                case '6':
-                    //controlador.eliminarCliente(); //mirar error
+                    controlador.eliminarCliente();
                     break;
                 case '0':
                     salir = true;

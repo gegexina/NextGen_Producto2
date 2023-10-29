@@ -109,11 +109,31 @@ public class Controlador {
     }
 
     public void listarClienteEstandard () {
-        //FALTA AÑADIRLA
+        ListaClientes listaClientes = datos.getListaClientes();
+        if (listaClientes.isEmpty()) {
+            System.out.println("\u001B[31m" + "No hay clientes estándar.\n" + "\u001B[0m");
+        } else {
+            System.out.println("\u001B[34m" + "Lista de clientes estándar:\n" + "\u001B[0m");
+            for (Cliente cliente : listaClientes.getArrayList()) {
+                if (cliente instanceof ClienteEstandard) {
+                    System.out.println(cliente.toString());
+                }
+            }
+        }
     }
 
     public void listarClientePremium () {
-        //FALTA AÑADIRLA
+        ListaClientes listaClientes = datos.getListaClientes();
+        if (listaClientes.isEmpty()) {
+            System.out.println("\u001B[31m" + "No hay clientes premium.\n" + "\u001B[0m");
+        } else {
+            System.out.println("\u001B[34m" + "Lista de clientes premium :\n" + "\u001B[0m");
+            for (Cliente cliente : listaClientes.getArrayList()) {
+                if (cliente instanceof ClientePremium) {
+                    System.out.println(cliente.toString());
+                }
+            }
+        }
     }
     /**
      * Agrega un nuevo cliente a la lista de clientes solicitando al usuario los datos necesarios.
@@ -188,8 +208,8 @@ public class Controlador {
         System.out.println("\u001B[34m" + "Escoge un cliente de la lista de clientes disponibles:" + "\u001B[0m");
         ListaClientes listaClientes = datos.getListaClientes();
         for (Cliente cliente : listaClientes.getArrayList()) {
-            System.out.println("NIF:          " + cliente.getNif());
-            System.out.println("Nombre:       " + cliente.getNombre());
+            System.out.println("NIF:     " + cliente.getNif());
+            System.out.println("Nombre:  " + cliente.getNombre());
             System.out.println("------------------------");
         }
 
@@ -200,12 +220,12 @@ public class Controlador {
 
         if (cliente != null) {
             System.out.println("\u001B[31m" + "¿Está seguro de que desea eliminar al siguiente cliente?" + "\u001B[0m");
-            System.out.println("NIF:          " + cliente.getNif());
-            System.out.println("Nombre:       " + cliente.getNombre());
-            System.out.print("Confirme (Sí/No): ");
+            System.out.println("NIF:     " + cliente.getNif());
+            System.out.println("Nombre:  " + cliente.getNombre());
+            System.out.print("Confirme (Si/No): ");
             String confirmacion = teclado.nextLine();
 
-            if (confirmacion.equalsIgnoreCase("Sí")) {
+            if (confirmacion.equalsIgnoreCase("Si")) {
                 listaClientes.borrar(cliente);
                 System.out.println("\u001B[33m" + "Cliente eliminado con éxito." + "\u001B[0m");
             } else {

@@ -14,7 +14,7 @@ public class Controlador {
     /**
      * Atributo que representa la instancia de Datos.
      */
-    private Datos datos;
+    private final Datos datos;
     Scanner teclado = new Scanner(System.in);
     /**
      * Constructor que inicializa una instancia de Datos.
@@ -77,11 +77,11 @@ public class Controlador {
         System.out.println("+---------------------+-----------------------+");
         System.out.println("  Campo               | Valor                  ");
         System.out.println("+---------------------+-----------------------+");
-        System.out.println(String.format("  Código              | %s", nuevoArticulo.getCodigo()));
-        System.out.println(String.format("  Descripción         | %s", nuevoArticulo.getDescripcion()));
-        System.out.println(String.format("  Precio              | %.2f€", nuevoArticulo.getPrecio()));
-        System.out.println(String.format("  Gastos de Envío     | %.2f€", nuevoArticulo.getGastosEnvio()));
-        System.out.println(String.format("  Preparación (min)   | %d min", nuevoArticulo.getPreparacionEnMin()));
+        System.out.printf("  Código              | %s%n", nuevoArticulo.getCodigo());
+        System.out.printf("  Descripción         | %s%n", nuevoArticulo.getDescripcion());
+        System.out.printf("  Precio              | %.2f€%n", nuevoArticulo.getPrecio());
+        System.out.printf("  Gastos de Envío     | %.2f€%n", nuevoArticulo.getGastosEnvio());
+        System.out.printf("  Preparación (min)   | %d min%n", nuevoArticulo.getPreparacionEnMin());
         System.out.println("+---------------------+-----------------------+");
     }
 
@@ -145,7 +145,7 @@ public class Controlador {
             System.out.println("\u001B[34m" + "Lista de clientes estándar:\n" + "\u001B[0m");
             for (Cliente cliente : listaClientes.getArrayList()) {
                 if (cliente instanceof ClienteEstandard) {
-                    System.out.println(cliente.toString());
+                    System.out.println(cliente);
                 }
             }
         }
@@ -161,7 +161,7 @@ public class Controlador {
             System.out.println("\u001B[34m" + "Lista de clientes premium :\n" + "\u001B[0m");
             for (Cliente cliente : listaClientes.getArrayList()) {
                 if (cliente instanceof ClientePremium) {
-                    System.out.println(cliente.toString());
+                    System.out.println(cliente);
                 }
             }
         }
@@ -224,11 +224,11 @@ public class Controlador {
         System.out.println("+---------------------+-----------------------+");
         System.out.println(" Campo               | Valor");
         System.out.println("+---------------------+-----------------------+");
-        System.out.println(String.format(" NIF                 | %s", nuevoCliente.getNif()));
-        System.out.println(String.format(" Nombre              | %s", nuevoCliente.getNombre()));
-        System.out.println(String.format(" Email               | %s", nuevoCliente.getEmail()));
-        System.out.println(String.format(" Dirección de envío  | %s", nuevoCliente.getDireccion()));
-        System.out.println(String.format(" Tipo de Cliente     | %s", tipoCliente));
+        System.out.printf(" NIF                 | %s%n", nuevoCliente.getNif());
+        System.out.printf(" Nombre              | %s%n", nuevoCliente.getNombre());
+        System.out.printf(" Email               | %s%n", nuevoCliente.getEmail());
+        System.out.printf(" Dirección de envío  | %s%n", nuevoCliente.getDireccion());
+        System.out.printf(" Tipo de Cliente     | %s%n", tipoCliente);
         System.out.println("+---------------------+-----------------------+");
     }
     /**
@@ -291,7 +291,7 @@ public class Controlador {
             System.out.println("\u001B[31m" + "Lista de pedidos pendientes:\n" + "\u001B[0m");
             for (Pedido pedido : listaPedidos.getArrayList()) {
                 if (!pedido.isEnviado()) {
-                    System.out.println(pedido.toString());
+                    System.out.println(pedido);
                 }
             }
         }
@@ -307,7 +307,7 @@ public class Controlador {
             System.out.println("\u001B[34m" + "Lista de pedidos enviados:\n" + "\u001B[0m");
             for (Pedido pedido : listaPedidos.getArrayList()) {
                 if (pedido.isEnviado()) {
-                    System.out.println(pedido.toString());
+                    System.out.println(pedido);
                 }
             }
         }
@@ -395,25 +395,26 @@ public class Controlador {
         System.out.println("+---------------------+-----------------------+");
         System.out.println("  Campo               | Valor                 ");
         System.out.println("+---------------------+-----------------------+");
-        System.out.println(String.format("  Número de Pedido     | %s", Pedido.getNumeroPedido()));
-        System.out.println(String.format("  Fecha y Hora         | %s", nuevoPedido.getFechaHora()));
-        System.out.println(String.format("  NIF del Cliente      | %s", nuevoPedido.getCliente().getNif()));
-        System.out.println(String.format("  Nombre del Cliente   | %s", nuevoPedido.getCliente().getNombre()));
-        System.out.println(String.format("  Código del Artículo  | %s", nuevoPedido.getArticulo().getCodigo()));
-        System.out.println(String.format("  Descripción Artículo | %s", nuevoPedido.getArticulo().getDescripcion()));
-        System.out.println(String.format("  Cantidad             | %d", nuevoPedido.getCantidad()));
-        System.out.println(String.format("  Precio Total         | %.2f€", nuevoPedido.precioTotal()));
+        System.out.printf("  Número de Pedido     | %s%n", Pedido.getNumeroPedido());
+        System.out.printf("  Fecha y Hora         | %s%n", nuevoPedido.getFechaHora());
+        System.out.printf("  NIF del Cliente      | %s%n", nuevoPedido.getCliente().getNif());
+        System.out.printf("  Nombre del Cliente   | %s%n", nuevoPedido.getCliente().getNombre());
+        System.out.printf("  Código del Artículo  | %s%n", nuevoPedido.getArticulo().getCodigo());
+        System.out.printf("  Descripción Artículo | %s%n", nuevoPedido.getArticulo().getDescripcion());
+        System.out.printf("  Cantidad             | %d%n", nuevoPedido.getCantidad());
+        System.out.printf("  Precio Articulo      | %d%n", nuevoPedido.getArticulo().getPrecio());
+        System.out.printf("  Costo de envío       | %.2f€%n", nuevoPedido.precioEnvio());
+        System.out.printf("  Precio Total         | %.2f€%n", nuevoPedido.precioTotal());
         System.out.println("+---------------------+-----------------------+");
     }
     /**
      * Método para eliminar un pedido de la lista
-     * @param pedido El pedido que se desea eliminar de la lista
      */
     public void eliminarPedido() {
         System.out.println("\u001B[34m" + "Elija un pedido de la lista de pedidos disponibles:" + "\u001B[0m");
         ListaPedidos listaPedidos = datos.getListaPedidos();
         for (Pedido pedido : listaPedidos.getArrayList()) {
-            System.out.println("Número de Pedido:   " + pedido.getNumeroPedido());
+            System.out.println("Número de Pedido:   " + Pedido.getNumeroPedido());
             System.out.println("Nombre del Cliente: " + pedido.getCliente().getNombre());
             System.out.println("------------------------");
         }

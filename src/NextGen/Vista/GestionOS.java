@@ -34,20 +34,12 @@ public class GestionOS {
             System.out.println("╚══════════════════════════════╝");
             opcion = pedirOpcion();
             switch (opcion) {
-                case '1':
-                    gestionArticulos();
-                    break;
-                case '2':
-                    gestionClientes();
-                    break;
-                case '3':
-                    gestionPedidos();
-                    break;
-                case '0':
-                    salir = true;
-                    break;
-                default:
-                    System.out.println("\u001B[31m" + "Opción inválida. Por favor, elija una opción válida." + "\u001B[0m");
+                case '1' -> gestionArticulos();
+                case '2' -> gestionClientes();
+                case '3' -> gestionPedidos();
+                case '0' -> salir = true;
+                default ->
+                        System.out.println("\u001B[31m" + "Opción inválida. Por favor, elija una opción válida." + "\u001B[0m");
             }
         } while (!salir);
     }
@@ -66,20 +58,12 @@ public class GestionOS {
             System.out.println("╚══════════════════════════════╝");
             opcion = pedirOpcion();
             switch (opcion) {
-                case '1':
-                    controlador.listarArticulos();
-                    break;
-                case '2':
-                    controlador.agregarArticulo();
-                    break;
-                case '3':
-                    controlador.eliminarArticulo();
-                    break;
-                case '0':
-                    salir = true;
-                    break;
-                default:
-                    System.out.println("\u001B[31m" + "Opción inválida. Por favor, elija una opción válida." + "\u001B[0m");
+                case '1' -> controlador.listarArticulos();
+                case '2' -> controlador.agregarArticulo();
+                case '3' -> controlador.eliminarArticulo();
+                case '0' -> salir = true;
+                default ->
+                        System.out.println("\u001B[31m" + "Opción inválida. Por favor, elija una opción válida." + "\u001B[0m");
             }
         } while (!salir);
     }
@@ -100,26 +84,14 @@ public class GestionOS {
             System.out.println("╚══════════════════════════════╝");
             opcion = pedirOpcion();
             switch (opcion) {
-                case '1':
-                    controlador.listarClientes();
-                    break;
-                case '2':
-                    controlador.listarClienteEstandard();
-                    break;
-                case '3':
-                    controlador.listarClientePremium();
-                    break;
-                case '4':
-                    controlador.agregarCliente();
-                    break;
-                case '5':
-                    controlador.eliminarCliente();
-                    break;
-                case '0':
-                    salir = true;
-                    break;
-                default:
-                    System.out.println("\u001B[31m" + "Opción inválida. Por favor, elija una opción válida." + "\u001B[0m");
+                case '1' -> controlador.listarClientes();
+                case '2' -> controlador.listarClienteEstandard();
+                case '3' -> controlador.listarClientePremium();
+                case '4' -> controlador.agregarCliente();
+                case '5' -> controlador.eliminarCliente();
+                case '0' -> salir = true;
+                default ->
+                        System.out.println("\u001B[31m" + "Opción inválida. Por favor, elija una opción válida." + "\u001B[0m");
             }
         } while (!salir);
     }
@@ -140,26 +112,14 @@ public class GestionOS {
             System.out.println("╚════════════════════════════════╝");
             opcion = pedirOpcion();
             switch (opcion) {
-                case '1':
-                    controlador.agregarPedido();
-                    break;
-                case '2':
-                    controlador.listarPedidos();
-                    break;
-                case '3':
-                    controlador.listarPedidosPendientes();
-                    break;
-                case '4':
-                    controlador.listarPedidosEnviados();
-                    break;
-                case '5':
-                    controlador.eliminarPedido();
-                    break;
-                case '0':
-                    salir = true;
-                    break;
-                default:
-                    System.out.println("\u001B[31m" + "Opción inválida. Por favor, elija una opción válida." + "\u001B[0m");
+                case '1' -> controlador.agregarPedido();
+                case '2' -> controlador.listarPedidos();
+                case '3' -> controlador.listarPedidosPendientes();
+                case '4' -> controlador.listarPedidosEnviados();
+                case '5' -> controlador.eliminarPedido();
+                case '0' -> salir = true;
+                default ->
+                        System.out.println("\u001B[31m" + "Opción inválida. Por favor, elija una opción válida." + "\u001B[0m");
             }
         } while (!salir);
     }

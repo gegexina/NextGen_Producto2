@@ -1,8 +1,6 @@
 package NextGen.Vista;
 
 import NextGen.Controlador.Controlador;
-import NextGen.Modelo.*;
-
 import java.util.Scanner;
 
 public class GestionOS {
@@ -49,7 +47,7 @@ public class GestionOS {
                     salir = true;
                     break;
                 default:
-                    System.out.println("Opción inválida. Por favor, elija una opción válida.");
+                    System.out.println("\u001B[31m" + "Opción inválida. Por favor, elija una opción válida." + "\u001B[0m");
             }
         } while (!salir);
     }
@@ -75,7 +73,7 @@ public class GestionOS {
                     controlador.agregarArticulo();
                     break;
                 case '3':
-                    //controlador.eliminarArticulo(); //mirar error
+                    controlador.eliminarArticulo();
                     break;
                 case '0':
                     salir = true;
@@ -106,10 +104,10 @@ public class GestionOS {
                     controlador.listarClientes();
                     break;
                 case '2':
-                    controlador.listarClienteEstandard(); //FALTA AÑADIRLA
+                    controlador.listarClienteEstandard();
                     break;
                 case '3':
-                    controlador.listarClientePremium(); //FALTA AÑADIRLA
+                    controlador.listarClientePremium();
                     break;
                 case '4':
                     controlador.agregarCliente();
@@ -149,13 +147,13 @@ public class GestionOS {
                     controlador.listarPedidos();
                     break;
                 case '3':
-                    controlador.listarPedidosPendientes(); //FALTA CREARLA
+                    controlador.listarPedidosPendientes();
                     break;
                 case '4':
-                    controlador.listarPedidosEnviados(); //FALTA CREARLA
+                    controlador.listarPedidosEnviados();
                     break;
                 case '5':
-                    //controlador.eliminarPedido(); //MIRAR ERROR
+                    controlador.eliminarPedido();
                     break;
                 case '0':
                     salir = true;

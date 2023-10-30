@@ -1,5 +1,6 @@
 package NextGen.Modelo;
 
+import java.text.DecimalFormat;
 import java.time.LocalDateTime;
 import java.util.Date;
 import java.text.SimpleDateFormat;
@@ -124,20 +125,18 @@ public class Pedido {
      * Comprueba si el pedido ha sido enviado.
      * @return true si el pedido ha sido enviado, false de lo contrario.
      */
-    //public boolean pedidoEnviado() {
-        //LocalDateTime horaPreparacion = fechaHora.plusMinutes(articulo.getPreparacionEnMin());
-        //LocalDateTime horaActual = LocalDateTime.now();
-
-        //return horaActual.isAfter(horaPreparacion);
-    //}
+    public boolean pedidoEnviado() {
+        LocalDateTime horaPreparacion = LocalDateTime.now().plusMinutes(articulo.getPreparacionEnMin());
+        LocalDateTime horaActual = LocalDateTime.now();
+        return horaActual.isAfter(horaPreparacion);
+    }
     /**
      * Calcula el costo de envío del pedido.
      * @return El costo de envío del pedido.
      */
     public float precioEnvio() {
         float descuento = cliente.descuentoEnv();
-        float precioEnvioConDescuento = (float) (articulo.getGastosEnvio() * (1 - descuento));
-        return precioEnvioConDescuento;
+        return (float) (articulo.getGastosEnvio() * (1 - descuento));
     }
     /**
      * Convierte el pedido en una representación de tabla.
@@ -147,8 +146,10 @@ public class Pedido {
     public String toString() {
         String separator = " | ";
         String header = "Número de Pedido | Fecha y Hora          | NIF Cliente | Nombre Cliente         | Código Artículo | Descripción Artículo | Cantidad | Precio Artículo | Costo de Envío | Precio Total | Enviado";
+        DecimalFormat df = new DecimalFormat("#.##");
         SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
-        return String.format("%-17s" + separator + "%-22s" + separator + "%-11s" + separator + "%-23s" + separator + "%-16s" + separator + "%-22s" + separator + "%-8s" + separator + "%-15s" + separator + "%-13s" + separator + "%-7s",
-                numeroPedido, dateFormat.format(fechaHora), cliente.getNif(), cliente.getNombre(), articulo.getCodigo(), articulo.getDescripcion(), cantidad, articulo.getPrecio() + "€", precioEnvio() + "€", precioTotal() + "€", enviado);
+        String data = String.format("%-17s" + separator + "%-22s" + separator + "%-11s" + separator + "%-23s" + separator + "%-8s" + separator + "%-22s" + separator + "%-2s" + separator + "%-15s" + separator + "%-13s" + separator + "%-7s",
+                numeroPedido, dateFormat.format(fechaHora), cliente.getNif(), cliente.getNombre(), articulo.getCodigo(), articulo.getDescripcion(), cantidad, articulo.getPrecio() + "€", df.format(precioEnvio()) + "€", df.format(precioTotal()) + "€", enviado);
+        return header + "\n" + data;
     }
 }
